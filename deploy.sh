@@ -9,7 +9,7 @@ docker push niallkenny/multi-client:$SHA
 docker push niallkenny/multi-server:$SHA
 docker push niallkenny/multi-worker:$SHA
 
-kubectl apply ./k8s
+kubectl apply -f ./k8s
 kubectl set image deployments/server-deployment server=niallkenny/multi-server:$SHA
 kubectl set image deployments/client-deployment client=niallkenny/multi-client:$SHA
 kubectl set image deployments/worker-deployment worker=niallkenny/multi-worker:$SHA
